@@ -1,9 +1,19 @@
+const handlePlayer = (counter) => {
+    if((counter % 2) != 0){
+        return 0;
+    }else{
+        return 1;
+    };
+};
+
 const Board = () => {
-    const [player, setPlayer] = React.useState(0);
-    //let player = 1;
+    const [count, setCount] = React.useState(1);
+    let player = handlePlayer(count);
     let status = `Player: ${player}`;
     return (
-        <div className="game-board" onClick={() => setPlayer(player+1)}>
+        <div className="game-board" onClick={(e) => { 
+            setCount(count+1);
+        }}>
             <div id="info">
                 <h2> {status} </h2>
             </div>
