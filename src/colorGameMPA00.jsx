@@ -1,18 +1,10 @@
-const handlePlayer = (counter) => {
-    if((counter % 2) != 0){
-        return 0;
-    }else{
-        return 1;
-    };
-};
-
 const Board = () => {
-    const [count, setCount] = React.useState(1);
-    let player = handlePlayer(count);
+    const [player, setPlayer] = React.useState(0);
     let status = `Player: ${player}`;
     return (
         <div className="game-board" onClick={(e) => { 
-            setCount(count+1);
+            setPlayer((player+1) % 2);
+            e.target.style.background = "red";
         }}>
             <div id="info">
                 <h2> {status} </h2>
